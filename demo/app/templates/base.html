@@ -1,0 +1,286 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %} {% endblock %}</title>
+    <link rel="stylesheet" href="{% static 'css/index.css' %}">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
+   
+</head>
+<body>
+    <!-- <div class="top_navigator d-none">
+        <div class="logo_content">
+            <div class="logo">
+                 <i class='bx bxl-c-plus-plus'></i>
+                <div class="logo_name">Накуртка Инстаграм</div>
+            </div>
+            <i class='bx bx-menu' id="btn2"></i>
+        </div>
+    </div>
+   <div class="sidebar">
+       <div class="logo_content">
+           <div class="logo">
+                <i class='bx bxl-c-plus-plus'></i>
+               <div class="logo_name">CodifyLab</div>
+           </div>
+           <i class='bx bx-menu' id="btn"></i>
+       </div>
+       <ul class="nav_list">
+            <li>
+                <form action="">
+                    <button><i class='bx bx-search'></i></button>
+                    <input placeholder="Search..." type="text">
+                    <span class="tooltip">Поиск</span>
+                </form>
+            </li>
+            <li class="mt-3">
+                <a href="{% url 'index' %}" class="{% if request.path == '/' %} bg-white text-dark-ocean {% endif %}">
+                    <i class='bx bx-grid-alt'></i>
+                    <span class="links_name">Главная</span>
+                </a>
+                <span class="tooltip">Главная</span>
+            </li>
+            <li class="my-2">
+                <a href="{% url 'workers' %}">
+                    <i class='bx bx-user' ></i>
+                    <span class="links_name">Пользователи</span>
+                </a>
+                <span class="tooltip">Пользователи</span>
+            </li>
+            <li class="my-2">
+                <a href="">
+                    <i class='bx bx-chat' ></i>
+                    <span class="links_name">Сообщения</span>
+                </a>
+                <span class="tooltip">Сообщения</span>
+            </li>
+            <li class="my-2">
+                <a href="{% url 'settings' %}" class="{% if request.path == '/settings/' %} bg-white text-dark-ocean {% endif %}">
+                    <i class='bx bx-cog ' ></i>
+                    <span class="links_name {% if request.path == '/settings/' %}  text-ocean {% endif %}">Настройки</span>
+                </a>
+                <span class="tooltip">Настройки</span>
+            </li>
+            
+       </ul>
+       <div class="profile-content">
+            <div class="profile">
+                {% if request.user.is_authenticated %}
+                    <div class="profile_details">
+                        <img src="{% static 'me.JPG' %}" alt="">
+                        <div class="name_job">
+                            <div class="name">{{request.user.last_name}} {{request.user.first_name}}</div>
+                            <div class="job">Web Developer</div>
+                        </div>
+                    </div>
+                    <a href="{% url 'sign_out' %}">
+                        <i class='bx bx-log-out log' ></i>
+                    </a>
+                {% else %}
+                <a href="{% url 'sign_in' %}">
+                    <i class='bx bx-log-in log'></i>
+                </a>
+                {% endif %}
+            </div>
+          
+       </div>
+   </div> -->
+    <!-- <nav class="navbar">
+        <div class="brand-title d-flex justify-content-center align-items-center">  
+            <img class="img_service" src="../static/images/me.jpg" alt="">
+            <a href="{% url 'index' %}" class=" text-white">
+                <span class="p-0 mt-0">Накуртка Инстаграм</span>
+            </a>
+        </div>
+        <a href="#" class="toggle-button">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+        </a>
+        <div class="navbar-links">
+        <ul>
+            <li>
+                    {% if request.user.is_authenticated %}
+                        <a href="{% url 'sign_out' %}" >
+                            <i class='' >Выход</i>
+                        </a>
+                    {% else %}
+                    <a href="{% url 'sign_in' %}">
+                        <i class=''>Авторизоваться</i>
+                    </a>
+                    {% endif %}
+            </li>
+            <li><a href="{% url 'categories' %}">Новый заказ</a></li>
+            <li><a href="#"></a></li>
+        </ul>
+        </div>
+    </nav> -->
+   <!-- Main -->
+   <!-- <div class="home_content  pb-sm-3"> -->
+    <nav>
+        <input type="checkbox" id="check" />
+        <label for="check" class="menu">
+          <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi mr-3 bi-list"
+            viewBox="0 0 16 16"
+          >
+            <path
+              fill-rule="evenodd"
+              d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z"
+            />
+          </svg>
+        </label>
+        <div class="logo">
+          <h2>Nakurtka Service</h2>
+        </div>
+        <div class="nav-items">
+          <ul class="overview">
+            <h3>Overview</h3>
+            <li>
+              <a href="#index"
+                ><svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="16"
+                  height="16"
+                  fill="currentColor"
+                  class="bi bi-house-fill"
+                  viewBox="0 0 16 16"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    d="m8 3.293 6 6V13.5a1.5 1.5 0 0 1-1.5 1.5h-9A1.5 1.5 0 0 1 2 13.5V9.293l6-6zm5-.793V6l-2-2V2.5a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5z"
+                  />
+                  <path
+                    fill-rule="evenodd"
+                    d="M7.293 1.5a1 1 0 0 1 1.414 0l6.647 6.646a.5.5 0 0 1-.708.708L8 2.207 1.354 8.854a.5.5 0 1 1-.708-.708L7.293 1.5z"
+                  />
+                </svg>
+                Home</a>
+            </li>
+            <li>
+              <a href="#"
+                ><svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="16"
+                  height="16"
+                  fill="currentColor"
+                  class="bi bi-bar-chart-fill"
+                  viewBox="0 0 16 16"
+                >
+                  <path
+                    d="M1 11a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v3a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1v-3zm5-4a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v7a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1V7zm5-5a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1h-2a1 1 0 0 1-1-1V2z"
+                  />
+                </svg>
+                Rates</a
+              >
+            </li>
+            <li>
+              <a href="#"
+                ><svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="16"
+                  height="16"
+                  fill="currentColor"
+                  class="bi bi-envelope-fill"
+                  viewBox="0 0 16 16"
+                >
+                  <path
+                    d="M.05 3.555A2 2 0 0 1 2 2h12a2 2 0 0 1 1.95 1.555L8 8.414.05 3.555zM0 4.697v7.104l5.803-3.558L0 4.697zM6.761 8.83l-6.57 4.027A2 2 0 0 0 2 14h12a2 2 0 0 0 1.808-1.144l-6.57-4.027L8 9.586l-1.239-.757zm3.436-.586L16 11.801V4.697l-5.803 3.546z"
+                  />
+                </svg>
+                Contact</a
+              >
+            </li>
+          </ul>
+          <ul class="account">
+            <h3>Account</h3>
+            <li>
+              <a href="#"
+                ><svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="16"
+                  height="16"
+                  fill="currentColor"
+                  class="bi bi-bell-fill"
+                  viewBox="0 0 16 16"
+                >
+                  <path
+                    d="M8 16a2 2 0 0 0 2-2H6a2 2 0 0 0 2 2zm.995-14.901a1 1 0 1 0-1.99 0A5.002 5.002 0 0 0 3 6c0 1.098-.5 6-2 7h14c-1.5-1-2-5.902-2-7 0-2.42-1.72-4.44-4.005-4.901z"
+                  />
+                </svg>
+                Notifications</a
+              >
+            </li>
+            <li>
+              <a href="#"
+                ><svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="16"
+                  height="16"
+                  fill="currentColor"
+                  class="bi bi-gear-fill"
+                  viewBox="0 0 16 16"
+                >
+                  <path
+                    d="M9.405 1.05c-.413-1.4-2.397-1.4-2.81 0l-.1.34a1.464 1.464 0 0 1-2.105.872l-.31-.17c-1.283-.698-2.686.705-1.987 1.987l.169.311c.446.82.023 1.841-.872 2.105l-.34.1c-1.4.413-1.4 2.397 0 2.81l.34.1a1.464 1.464 0 0 1 .872 2.105l-.17.31c-.698 1.283.705 2.686 1.987 1.987l.311-.169a1.464 1.464 0 0 1 2.105.872l.1.34c.413 1.4 2.397 1.4 2.81 0l.1-.34a1.464 1.464 0 0 1 2.105-.872l.31.17c1.283.698 2.686-.705 1.987-1.987l-.169-.311a1.464 1.464 0 0 1 .872-2.105l.34-.1c1.4-.413 1.4-2.397 0-2.81l-.34-.1a1.464 1.464 0 0 1-.872-2.105l.17-.31c.698-1.283-.705-2.686-1.987-1.987l-.311.169a1.464 1.464 0 0 1-2.105-.872l-.1-.34zM8 10.93a2.929 2.929 0 1 1 0-5.86 2.929 2.929 0 0 1 0 5.858z"
+                  />
+                </svg>
+                Settings</a
+              >
+            </li>
+          </ul>
+        </div>
+    </nav>
+    {% block content %}
+        
+            
+    {% endblock %}
+    <footer class="footer-distributed  ">
+      <div class="footer-left ">
+      <h3>Nakurtka <span>Service</span></h3>
+      <p class="footer-links">
+      <a href="#index">Home</a>
+      ·
+      <a href="#">Blog</a>
+      ·
+      <a href="#">Contact</a>
+      </p>
+      <p class="footer-company-name">Nakurtkaservice &copy; 2022</p>
+      </div>
+      <div class="footer-center">
+      <div>
+      <i class="fa fa-map-marker"></i>
+      <p><span>21 Revolution Street</span> Uzbekistan, Buxara</p>
+      </div>
+      <div>
+      <i class="fa fa-phone"></i>
+      <p>+998(93)967-31-01</p>
+      </div>
+      <div>
+      <i class="fa fa-envelope"></i>
+      <p><a href="#">mirxonovfirdavs@gmail.com</a></p>
+      </div>
+      
+      </div>
+      
+      <div class="footer-right"> 
+      <p class="footer-company-about">
+      <span>About the company</span>
+      Web Dev Trick is a blog for web designers, graphic designers, web developers &amp; SEO Learner.
+      </p>
+      <div class="footer-icons fs-30 text-white">
+        <i class='bx bxl-facebook-circle'></i>
+        <i class='bx bxl-twitter' ></i>
+        <i class='bx bxl-linkedin'></i>
+        <i class='bx bxl-github' ></i>  
+      </div>
+      </div>
+    </footer>
+
+    <script type="text/javascript" src="{% static 'js/script.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/index.js' %}"></script>
+</body>
+</html>

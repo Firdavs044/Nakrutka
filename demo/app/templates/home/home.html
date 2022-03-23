@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %} Home {% endblock %}
+
+{% block content %}
+   <!-- Main -->
+   <div class="min-vh-75">
+    <div class="container py-3 w-50 w-sm-100 mx-auto mt-5  rounded-1 shadow-2 ">
+        <div class="d-flex justify-content-between align-items-center">
+            <div class="text-dark-ocean fs-20 b-2 ">Заказ:</div>
+            <div class="class=text-dark-grey b-2 fs-15">Цена <span class="price">{{price.price}}</span> $ за 1</div>
+        </div>
+        <div class="hr-dark-light"></div>
+            <form action="{% url 'click' %}" class="sm-gap-1 gap-2 grid-3" method="POST">
+                <input type="text"  value="{{price.id}}" name="price_id" class=" d-none">
+                {% csrf_token %}
+                <div class="input-field">
+                    <label  class="label text-night fs-20">Количество </label>
+                    <input required  type="text"  name="quantity" placeholder="Количество" class="quantity bg-light input">
+                </div>
+                <div class="input-field text-night fs-20">
+                    <label  class="label">Цена</label>
+                    <input type="text" value="{{sum}}" readonly  class="input sum ">
+                </div>
+                <div class="input-field text-night fs-20">
+                    <label  class="label">Ссылка</label>
+                    <input required type="text" placeholder="Ссылка" name="link" class="input">
+                </div>
+                <input type="text" class="d-none total_hidden"  name="total" >
+                <button class="btn btn-red rounded-2 mt-3" >Продолжать</button>
+            </form>
+     
+       </div>
+   </div>
+
+   <script>
+    
+   
+        document.querySelector('.quantity').addEventListener('input', ()=> {
+            
+       
+        
+            let quantity = Number(document.querySelector('.quantity').value)
+            let price = Number(document.querySelector('.price').innerHTML)
+            let sum = quantity * price
+
+            document.querySelector('.sum').value = sum
+            document.querySelector('.total_hidden').value = sum
+        })
+    
+</script>
+{% endblock %}
+
+

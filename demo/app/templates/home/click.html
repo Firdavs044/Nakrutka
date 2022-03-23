@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %} Home {% endblock %}
+
+{% block content %}
+   <!-- Main -->
+   <div class="container py-4">
+    <label class="text-dark-ocean fs-20 b-2 mt-4">Оплата:</label>
+    <div class="hr-dark-light"></div>
+        <div class="sm-gap-1">
+            <div class="input-field">
+                <label  class="label text-night fs-20">Total</label>
+                <input  type="text" class=" bg-light input">
+            </div>
+            <div class="input-field text-night fs-20">
+                <label  class="label">Номер карты</label>
+                <input type="number" placeholder="Номер карты" class="input">
+            </div>
+            <div class="input-field text-night fs-20">
+                <i class='bx bxl-visa'>Банковская карта</i>
+            </div>
+            <button class="btn btn-red rounded-2 mt-3">Оплата</button>
+        </div>
+   </div>
+{% endblock %}

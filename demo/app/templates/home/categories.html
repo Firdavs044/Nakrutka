@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %} Home {% endblock %}
+
+{% block content %}
+   <!-- Main -->
+   <div class="container py-4">
+    <label class="text-dark-ocean fs-20 b-2 mt-4">Website:</label>
+    <div class="hr-dark-light"></div>
+   <div class="text-light  ">        
+        <div class="grid-2 gap-2" >
+                 {% for website in websites %}
+                 <div class="  shadow-2 rounded-1 bg-ocean mt-0 px-3 text-light">
+                     <div class="d-flex align-items-center ">
+                        <img src="{{website.image.url}}" class="w-5 my-1 rounded-3 w-sm-25 mx-2 bg-light" alt="">
+                        <h1 class="fs-20 ">{{website.title}}</h1>
+                     </div>
+                     <div class="grid-4 p-3  gap-1">
+                     {% for item in types %}
+                        <a class="fs-20 text-center p-2 rounded-2 bg-white text-dark-ocean b-2" href="{% url 'zakaz' website_id=website.id type_id=item.id %}">{{item.title}}</a> 
+                     {% endfor %} 
+                     </div>
+                 </div>
+                 {% endfor %}    
+                 </select>
+        </div>
+   </div>
+ 
+   </div>
+{% endblock %}
