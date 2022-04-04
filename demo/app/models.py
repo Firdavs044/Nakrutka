@@ -1,5 +1,3 @@
-
-from payments.models import BasePayment
 from django.db import models
 from django.db.models.fields import DecimalField, related
 from django.forms import IntegerField
